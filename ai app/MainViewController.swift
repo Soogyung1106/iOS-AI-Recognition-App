@@ -10,8 +10,8 @@ import UIKit
 class MainViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    let dataArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
-        
+    let sampleData = SampleData()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,12 +22,16 @@ class MainViewController: UIViewController, UITableViewDataSource {
     
     //UITableViewDataSource 프로토콜 구현
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dataArray.count
+        return self.sampleData.samples.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "numberCell", for: indexPath)
-        cell.textLabel?.text = self.dataArray[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "mainFeatureCell", for: indexPath) as! MainFeatureCell
+        
+        let sample = self.sampleData.samples[indexPath.row]
+        cell.titleLabel.text = sample.title
+        cell.descriptionLabel.text = sample.description
+        cell.featureImageView.image = UIImage(named: sample.image)
         
         return cell
     }
