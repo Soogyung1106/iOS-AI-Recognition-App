@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ObjectDetectionViewController: UIViewController {
+class ObjectDetectionViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,12 +23,21 @@ class ObjectDetectionViewController: UIViewController {
         
         //1) 사진을 앨범에서 가져오는 버튼
         let importFromAlbum = UIAlertAction(title: "앨범에서 가져오기", style: .default) { _ in
-    
+            let picker = UIImagePickerController()
+            picker.delegate = self
+            picker.sourceType = .savedPhotosAlbum
+            picker.allowsEditing = true
+            self.present(picker, animated: true, completion: nil)
         }
         
         //2) 사진을 찍는 버튼
         let takePhoto = UIAlertAction(title: "카메라로 찍기", style: .default) { _ in
-            
+            let picker = UIImagePickerController()
+            picker.delegate = self
+            picker.sourceType = .camera
+            picker.cameraCaptureMode = .photo
+            picker.allowsEditing = true
+            self.present(picker, animated: true, completion: nil)
         }
         
         //3) 취소 버튼
@@ -42,7 +51,21 @@ class ObjectDetectionViewController: UIViewController {
         //actionSheet를 보여주기
         self.present(actionSheet, animated: true, completion: nil)
         
+    }
+    
+    
+    //사용자가 이미지를 골랐을 때 작동
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
+        //Choose 버튼을 누른 후 앨범 화면이 내려가도록 설정
+        picker.dismiss(animated: true)
+        
+        //Choose 버튼
+        if let uiImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
+            print("log : 이미지를 불러옴")
+        }
+            
+            
     }
 
 }
