@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5tL-ZY-9HB">
     <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -97,8 +98,21 @@
                     <view key="view" contentMode="scaleToFill" id="RIb-HY-dUM">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GZ6-yf-eXa">
+                                <rect key="frame" x="0.0" y="103" width="430" height="430"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="GZ6-yf-eXa" secondAttribute="height" id="TQ1-G2-hw6"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="5KZ-LJ-U8C"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5KZ-LJ-U8C" firstAttribute="trailing" secondItem="GZ6-yf-eXa" secondAttribute="trailing" id="T9A-AN-0HI"/>
+                            <constraint firstItem="GZ6-yf-eXa" firstAttribute="top" secondItem="5KZ-LJ-U8C" secondAttribute="top" id="d7Z-xq-IV2"/>
+                            <constraint firstItem="GZ6-yf-eXa" firstAttribute="leading" secondItem="5KZ-LJ-U8C" secondAttribute="leading" id="m8L-IT-VeK"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zby-6w-h8A">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="yVV-pl-jg1">
@@ -107,10 +121,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="selectedImageView" destination="GZ6-yf-eXa" id="a8E-8G-9dt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bID-Lv-MGN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-71" y="637"/>
+            <point key="canvasLocation" x="-71.162790697674424" y="636.69527896995714"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="gGC-ZD-j6b">

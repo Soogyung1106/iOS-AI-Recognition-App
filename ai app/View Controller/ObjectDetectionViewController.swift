@@ -9,6 +9,8 @@ import UIKit
 
 class ObjectDetectionViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
+    @IBOutlet weak var selectedImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -63,6 +65,7 @@ class ObjectDetectionViewController: UIViewController, UINavigationControllerDel
         //Choose 버튼
         if let uiImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
             print("log : 이미지를 불러옴")
+            self.selectedImageView.image = uiImage
         }
             
             
