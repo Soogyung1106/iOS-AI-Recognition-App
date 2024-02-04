@@ -16,6 +16,7 @@
 		EB71F0BE2B6B791B002A1A27 /* MainFeatureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F0BD2B6B791B002A1A27 /* MainFeatureCell.swift */; };
 		EB71F0C02B6B7BE5002A1A27 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F0BF2B6B7BE5002A1A27 /* SampleData.swift */; };
 		EB71F0C22B6CC45E002A1A27 /* ObjectDetectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F0C12B6CC45E002A1A27 /* ObjectDetectionViewController.swift */; };
+		EBB01F9F2B6EE44900D4FF4D /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = EBB01F9E2B6EE44900D4FF4D /* Inceptionv3.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		EB71F0BD2B6B791B002A1A27 /* MainFeatureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeatureCell.swift; sourceTree = "<group>"; };
 		EB71F0BF2B6B7BE5002A1A27 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		EB71F0C12B6CC45E002A1A27 /* ObjectDetectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetectionViewController.swift; sourceTree = "<group>"; };
+		EBB01F9E2B6EE44900D4FF4D /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		EB71F09E2B5E6D5C002A1A27 /* ai app */ = {
 			isa = PBXGroup;
 			children = (
+				EBB01FA02B6EE46700D4FF4D /* ML Model */,
 				EB71F0C52B6CC4CC002A1A27 /* Model */,
 				EB71F0C42B6CC491002A1A27 /* Custom Views */,
 				EB71F0C32B6CC46C002A1A27 /* View Controller */,
@@ -98,6 +101,14 @@
 				EB71F0BF2B6B7BE5002A1A27 /* SampleData.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		EBB01FA02B6EE46700D4FF4D /* ML Model */ = {
+			isa = PBXGroup;
+			children = (
+				EBB01F9E2B6EE44900D4FF4D /* Inceptionv3.mlmodel */,
+			);
+			path = "ML Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +188,7 @@
 				EB71F0C22B6CC45E002A1A27 /* ObjectDetectionViewController.swift in Sources */,
 				EB71F0C02B6B7BE5002A1A27 /* SampleData.swift in Sources */,
 				EB71F0A22B5E6D5C002A1A27 /* SceneDelegate.swift in Sources */,
+				EBB01F9F2B6EE44900D4FF4D /* Inceptionv3.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,7 +343,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -360,7 +372,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

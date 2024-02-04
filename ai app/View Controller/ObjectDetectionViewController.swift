@@ -6,10 +6,30 @@
 //
 
 import UIKit
+import Vision //ML Model
 
 class ObjectDetectionViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-
+    
     @IBOutlet weak var selectedImageView: UIImageView!
+    
+    //옵저버 프로퍼티  - 이미지가 선택되었을 때를 감시
+    var selectedImage: UIImage?{
+        didSet{
+            self.selectedImageView.image = selectedImage
+        }
+    }
+    
+    //옵저버 프로퍼티 - ciImage
+    var selectedciImage: CIImage?{
+        get{
+            if let selectedImage = self.selectedImage{
+                return CIImage(image: selectedImage)
+            }else{
+                return nil
+            }
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,10 +85,37 @@ class ObjectDetectionViewController: UIViewController, UINavigationControllerDel
         //Choose 버튼
         if let uiImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
             print("log : 이미지를 불러옴")
-            self.selectedImageView.image = uiImage
+            self.selectedImage = uiImage
+            self.detectObject() //사물인식 펑션 호출
         }
-            
-            
     }
+    
+    //ML 모델에 이미지를 넣어서 계산되는 부분
+    func detectObject(){
+        if let ciImage = self.selectedciImage{
+            do{
+                let vnCoreMLModel = try VNCoreMLModel(for: Inceptionv3().model)
+                let request = VNCoreMLRequest(model: vnCoreMLModel, completionHandler: self.handleObjectDetection)
+                request.imageCropAndScaleOption = .centerCrop
+                let requestHandler = VNImageRequestHandler(ciImage: ciImage, options: [:])
+                try requestHandler.perform([request])
+            }catch{
+                print(error)
+            }
+        }
+    }
+    
+    //ML으로 사물인식 결과를 받는 펑션
+    func handleObjectDetection(request: VNRequest, error: Error?){
+        //"카테고리 : 정확도" 형식으로 출력
+        if let results = request.results as? [VNClassificationObservation] {
+            for result in results {
+                print("\(result.identifier) : \(result.confidence)")
+            }
+        }
+    }
+    
+    
+    
 
 }
