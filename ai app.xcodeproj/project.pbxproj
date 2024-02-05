@@ -7,16 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB01B7E82B6FCD59004A8F8F /* ObjectDetectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB01B7E72B6FCD59004A8F8F /* ObjectDetectionViewController.swift */; };
 		EB71F0A02B5E6D5C002A1A27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F09F2B5E6D5C002A1A27 /* AppDelegate.swift */; };
 		EB71F0A22B5E6D5C002A1A27 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F0A12B5E6D5C002A1A27 /* SceneDelegate.swift */; };
 		EB71F0A72B5E6D5C002A1A27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB71F0A52B5E6D5C002A1A27 /* Main.storyboard */; };
 		EB71F0A92B5E6D5F002A1A27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB71F0A82B5E6D5F002A1A27 /* Assets.xcassets */; };
 		EB71F0AC2B5E6D5F002A1A27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB71F0AA2B5E6D5F002A1A27 /* LaunchScreen.storyboard */; };
-		EB71F0B62B69DCA5002A1A27 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F0B52B69DCA5002A1A27 /* FirstViewController.swift */; };
-		EB71F0B82B69DCC6002A1A27 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F0B72B69DCC6002A1A27 /* SecondViewController.swift */; };
+		EB71F0BC2B6B64AA002A1A27 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F0BB2B6B64AA002A1A27 /* MainViewController.swift */; };
+		EB71F0BE2B6B791B002A1A27 /* MainFeatureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F0BD2B6B791B002A1A27 /* MainFeatureCell.swift */; };
+		EB71F0C02B6B7BE5002A1A27 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F0BF2B6B7BE5002A1A27 /* SampleData.swift */; };
+		EBB01F9F2B6EE44900D4FF4D /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = EBB01F9E2B6EE44900D4FF4D /* Inceptionv3.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EB01B7E72B6FCD59004A8F8F /* ObjectDetectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ObjectDetectionViewController.swift; path = "ai App/View Controller/ObjectDetectionViewController.swift"; sourceTree = SOURCE_ROOT; };
 		EB71F09C2B5E6D5C002A1A27 /* ai app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ai app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB71F09F2B5E6D5C002A1A27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB71F0A12B5E6D5C002A1A27 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,8 +28,10 @@
 		EB71F0A82B5E6D5F002A1A27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB71F0AB2B5E6D5F002A1A27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB71F0AD2B5E6D5F002A1A27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EB71F0B52B69DCA5002A1A27 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		EB71F0B72B69DCC6002A1A27 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		EB71F0BB2B6B64AA002A1A27 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		EB71F0BD2B6B791B002A1A27 /* MainFeatureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeatureCell.swift; sourceTree = "<group>"; };
+		EB71F0BF2B6B7BE5002A1A27 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
+		EBB01F9E2B6EE44900D4FF4D /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +64,51 @@
 		EB71F09E2B5E6D5C002A1A27 /* ai app */ = {
 			isa = PBXGroup;
 			children = (
+				EBB01FA02B6EE46700D4FF4D /* ML Model */,
+				EB71F0C52B6CC4CC002A1A27 /* Model */,
+				EB71F0C42B6CC491002A1A27 /* Custom Views */,
+				EB71F0C32B6CC46C002A1A27 /* View Controller */,
 				EB71F09F2B5E6D5C002A1A27 /* AppDelegate.swift */,
 				EB71F0A12B5E6D5C002A1A27 /* SceneDelegate.swift */,
 				EB71F0A52B5E6D5C002A1A27 /* Main.storyboard */,
 				EB71F0A82B5E6D5F002A1A27 /* Assets.xcassets */,
 				EB71F0AA2B5E6D5F002A1A27 /* LaunchScreen.storyboard */,
 				EB71F0AD2B5E6D5F002A1A27 /* Info.plist */,
-				EB71F0B52B69DCA5002A1A27 /* FirstViewController.swift */,
-				EB71F0B72B69DCC6002A1A27 /* SecondViewController.swift */,
 			);
 			path = "ai app";
+			sourceTree = "<group>";
+		};
+		EB71F0C32B6CC46C002A1A27 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EB71F0BB2B6B64AA002A1A27 /* MainViewController.swift */,
+				EB01B7E72B6FCD59004A8F8F /* ObjectDetectionViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		EB71F0C42B6CC491002A1A27 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				EB71F0BD2B6B791B002A1A27 /* MainFeatureCell.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		EB71F0C52B6CC4CC002A1A27 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EB71F0BF2B6B7BE5002A1A27 /* SampleData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EBB01FA02B6EE46700D4FF4D /* ML Model */ = {
+			isa = PBXGroup;
+			children = (
+				EBB01F9E2B6EE44900D4FF4D /* Inceptionv3.mlmodel */,
+			);
+			path = "ML Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,10 +182,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB71F0B82B69DCC6002A1A27 /* SecondViewController.swift in Sources */,
-				EB71F0B62B69DCA5002A1A27 /* FirstViewController.swift in Sources */,
+				EB71F0BC2B6B64AA002A1A27 /* MainViewController.swift in Sources */,
+				EB71F0BE2B6B791B002A1A27 /* MainFeatureCell.swift in Sources */,
 				EB71F0A02B5E6D5C002A1A27 /* AppDelegate.swift in Sources */,
+				EB01B7E82B6FCD59004A8F8F /* ObjectDetectionViewController.swift in Sources */,
+				EB71F0C02B6B7BE5002A1A27 /* SampleData.swift in Sources */,
 				EB71F0A22B5E6D5C002A1A27 /* SceneDelegate.swift in Sources */,
+				EBB01F9F2B6EE44900D4FF4D /* Inceptionv3.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +343,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -327,6 +372,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
