@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB01B7E82B6FCD59004A8F8F /* ObjectDetectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB01B7E72B6FCD59004A8F8F /* ObjectDetectionViewController.swift */; };
 		EB71F0A02B5E6D5C002A1A27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F09F2B5E6D5C002A1A27 /* AppDelegate.swift */; };
 		EB71F0A22B5E6D5C002A1A27 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F0A12B5E6D5C002A1A27 /* SceneDelegate.swift */; };
 		EB71F0A72B5E6D5C002A1A27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB71F0A52B5E6D5C002A1A27 /* Main.storyboard */; };
@@ -15,11 +16,11 @@
 		EB71F0BC2B6B64AA002A1A27 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F0BB2B6B64AA002A1A27 /* MainViewController.swift */; };
 		EB71F0BE2B6B791B002A1A27 /* MainFeatureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F0BD2B6B791B002A1A27 /* MainFeatureCell.swift */; };
 		EB71F0C02B6B7BE5002A1A27 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F0BF2B6B7BE5002A1A27 /* SampleData.swift */; };
-		EB71F0C22B6CC45E002A1A27 /* ObjectDetectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F0C12B6CC45E002A1A27 /* ObjectDetectionViewController.swift */; };
 		EBB01F9F2B6EE44900D4FF4D /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = EBB01F9E2B6EE44900D4FF4D /* Inceptionv3.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EB01B7E72B6FCD59004A8F8F /* ObjectDetectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ObjectDetectionViewController.swift; path = "ai App/View Controller/ObjectDetectionViewController.swift"; sourceTree = SOURCE_ROOT; };
 		EB71F09C2B5E6D5C002A1A27 /* ai app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ai app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB71F09F2B5E6D5C002A1A27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB71F0A12B5E6D5C002A1A27 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,7 +31,6 @@
 		EB71F0BB2B6B64AA002A1A27 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		EB71F0BD2B6B791B002A1A27 /* MainFeatureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeatureCell.swift; sourceTree = "<group>"; };
 		EB71F0BF2B6B7BE5002A1A27 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
-		EB71F0C12B6CC45E002A1A27 /* ObjectDetectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetectionViewController.swift; sourceTree = "<group>"; };
 		EBB01F9E2B6EE44900D4FF4D /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,8 +81,8 @@
 		EB71F0C32B6CC46C002A1A27 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				EB71F0C12B6CC45E002A1A27 /* ObjectDetectionViewController.swift */,
 				EB71F0BB2B6B64AA002A1A27 /* MainViewController.swift */,
+				EB01B7E72B6FCD59004A8F8F /* ObjectDetectionViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -185,7 +185,7 @@
 				EB71F0BC2B6B64AA002A1A27 /* MainViewController.swift in Sources */,
 				EB71F0BE2B6B791B002A1A27 /* MainFeatureCell.swift in Sources */,
 				EB71F0A02B5E6D5C002A1A27 /* AppDelegate.swift in Sources */,
-				EB71F0C22B6CC45E002A1A27 /* ObjectDetectionViewController.swift in Sources */,
+				EB01B7E82B6FCD59004A8F8F /* ObjectDetectionViewController.swift in Sources */,
 				EB71F0C02B6B7BE5002A1A27 /* SampleData.swift in Sources */,
 				EB71F0A22B5E6D5C002A1A27 /* SceneDelegate.swift in Sources */,
 				EBB01F9F2B6EE44900D4FF4D /* Inceptionv3.mlmodel in Sources */,

@@ -11,6 +11,9 @@ import Vision //ML Model
 class ObjectDetectionViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet weak var selectedImageView: UIImageView!
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var confidenceLabel: UILabel!
+    
     
     //옵저버 프로퍼티  - 이미지가 선택되었을 때를 감시
     var selectedImage: UIImage?{
@@ -33,8 +36,10 @@ class ObjectDetectionViewController: UIViewController, UINavigationControllerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        //첫 화면에서 보이는 라벨 초기화
+        self.categoryLabel.text = ""
+        self.confidenceLabel.text = ""
     }
     
     //사진을 추가하는 펑션
@@ -108,14 +113,24 @@ class ObjectDetectionViewController: UIViewController, UINavigationControllerDel
     //ML으로 사물인식 결과를 받는 펑션
     func handleObjectDetection(request: VNRequest, error: Error?){
         //"카테고리 : 정확도" 형식으로 출력
-        if let results = request.results as? [VNClassificationObservation] {
-            for result in results {
-                print("\(result.identifier) : \(result.confidence)")
-            }
+//        if let results = request.results as? [VNClassificationObservation] {
+//            for result in results {
+//                print("\(result.identifier) : \(result.confidence)")
+//            }
+//        }
+        
+        //화면에 표시 - Label
+        if let result = request.results?.first as? VNClassificationObservation {
+            self.categoryLabel.text = result.identifier    //카테고리
+//            self.confidenceLabel.text = "\(result.confidence)"  //정확도
+            self.confidenceLabel.text = "\(String(format: "%.2f", result.confidence*100))%"  //정확도
         }
+        
     }
     
     
     
-
+    
+    
 }
+
