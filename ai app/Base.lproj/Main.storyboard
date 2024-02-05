@@ -104,8 +104,8 @@
                                     <constraint firstAttribute="width" secondItem="GZ6-yf-eXa" secondAttribute="height" id="TQ1-G2-hw6"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Category" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfj-DY-u65">
-                                <rect key="frame" x="20" y="792" width="388" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfj-DY-u65">
+                                <rect key="frame" x="20" y="792" width="388" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -116,6 +116,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ugC-kt-Wdo">
+                                <rect key="frame" x="204" y="627" width="20" height="20"/>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5KZ-LJ-U8C"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -123,11 +127,12 @@
                             <constraint firstItem="5KZ-LJ-U8C" firstAttribute="trailing" secondItem="dfj-DY-u65" secondAttribute="trailing" constant="20" id="2Yu-ZY-EYx"/>
                             <constraint firstItem="UdU-JU-YDd" firstAttribute="top" secondItem="dfj-DY-u65" secondAttribute="bottom" constant="30" id="Cp1-U9-Gqt"/>
                             <constraint firstItem="dfj-DY-u65" firstAttribute="leading" secondItem="5KZ-LJ-U8C" secondAttribute="leading" constant="20" id="Dka-Co-loJ"/>
-                            <constraint firstItem="dfj-DY-u65" firstAttribute="centerX" secondItem="5KZ-LJ-U8C" secondAttribute="centerX" id="NZF-Gq-P02"/>
+                            <constraint firstItem="ugC-kt-Wdo" firstAttribute="top" secondItem="GZ6-yf-eXa" secondAttribute="bottom" constant="108" id="Iyx-0p-8Io"/>
                             <constraint firstItem="5KZ-LJ-U8C" firstAttribute="bottom" secondItem="UdU-JU-YDd" secondAttribute="bottom" constant="16" id="Ola-rZ-SpE"/>
                             <constraint firstItem="5KZ-LJ-U8C" firstAttribute="trailing" secondItem="GZ6-yf-eXa" secondAttribute="trailing" id="T9A-AN-0HI"/>
                             <constraint firstItem="GZ6-yf-eXa" firstAttribute="top" secondItem="5KZ-LJ-U8C" secondAttribute="top" id="d7Z-xq-IV2"/>
                             <constraint firstItem="GZ6-yf-eXa" firstAttribute="leading" secondItem="5KZ-LJ-U8C" secondAttribute="leading" id="m8L-IT-VeK"/>
+                            <constraint firstItem="ugC-kt-Wdo" firstAttribute="centerX" secondItem="5KZ-LJ-U8C" secondAttribute="centerX" id="vCI-lE-sDu"/>
                             <constraint firstItem="UdU-JU-YDd" firstAttribute="centerX" secondItem="5KZ-LJ-U8C" secondAttribute="centerX" id="yzt-c7-MBm"/>
                         </constraints>
                     </view>
@@ -139,6 +144,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="ugC-kt-Wdo" id="DmW-vk-gv1"/>
                         <outlet property="categoryLabel" destination="dfj-DY-u65" id="TSh-AK-uDZ"/>
                         <outlet property="confidenceLabel" destination="UdU-JU-YDd" id="LfJ-Tj-lgp"/>
                         <outlet property="selectedImageView" destination="GZ6-yf-eXa" id="a8E-8G-9dt"/>

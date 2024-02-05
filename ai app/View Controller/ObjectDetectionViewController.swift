@@ -13,6 +13,7 @@ class ObjectDetectionViewController: UIViewController, UINavigationControllerDel
     @IBOutlet weak var selectedImageView: UIImageView!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var confidenceLabel: UILabel!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     
     //옵저버 프로퍼티  - 이미지가 선택되었을 때를 감시
@@ -38,6 +39,8 @@ class ObjectDetectionViewController: UIViewController, UINavigationControllerDel
         super.viewDidLoad()
         
         //첫 화면에서 보이는 라벨 초기화
+        self.activityIndicatorView.hidesWhenStopped = true
+        self.activityIndicatorView.stopAnimating()
         self.categoryLabel.text = ""
         self.confidenceLabel.text = ""
     }
@@ -91,7 +94,17 @@ class ObjectDetectionViewController: UIViewController, UINavigationControllerDel
         if let uiImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
             print("log : 이미지를 불러옴")
             self.selectedImage = uiImage
-            self.detectObject() //사물인식 펑션 호출
+            
+            //이미지가 선택되면 로딩 아이콘 설정 - activityIndicatorView
+            self.activityIndicatorView.startAnimating()
+            self.categoryLabel.text = ""
+            self.confidenceLabel.text = ""
+            
+            
+            //[issue 해결] 싱글 쓰레드에서 멀티쓰레드 호출로 방식 변경
+            DispatchQueue.global(qos: .userInitiated).async {
+                self.detectObject() //사물인식 펑션 호출
+            }
         }
     }
     
@@ -103,7 +116,7 @@ class ObjectDetectionViewController: UIViewController, UINavigationControllerDel
                 let request = VNCoreMLRequest(model: vnCoreMLModel, completionHandler: self.handleObjectDetection)
                 request.imageCropAndScaleOption = .centerCrop
                 let requestHandler = VNImageRequestHandler(ciImage: ciImage, options: [:])
-                try requestHandler.perform([request])
+                try requestHandler.perform([request])   //[issue] 작업이 오래 걸리는 펑션 -> 사진에 따라서 앱 로딩 시간 길어지는 freeze 현상
             }catch{
                 print(error)
             }
@@ -121,16 +134,18 @@ class ObjectDetectionViewController: UIViewController, UINavigationControllerDel
         
         //화면에 표시 - Label
         if let result = request.results?.first as? VNClassificationObservation {
-            self.categoryLabel.text = result.identifier    //카테고리
-//            self.confidenceLabel.text = "\(result.confidence)"  //정확도
-            self.confidenceLabel.text = "\(String(format: "%.2f", result.confidence*100))%"  //정확도
+            
+            //UI적인 부분은 반드시 메인 쓰레드에서 실행되야 함
+            DispatchQueue.main.async {
+                self.activityIndicatorView.stopAnimating()  //분석이 완료되면 로딩 아이콘 중지 - activityIndicatorView 
+                self.categoryLabel.text = result.identifier    //카테고리
+    //            self.confidenceLabel.text = "\(result.confidence)"  //정확도
+                self.confidenceLabel.text = "\(String(format: "%.2f", result.confidence*100))%"  //사용자 친화적으로 정확도 수치 변경
+
+            }
         }
         
     }
-    
-    
-    
-    
-    
+     
 }
 
