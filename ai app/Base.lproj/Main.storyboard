@@ -154,21 +154,36 @@
             </objects>
             <point key="canvasLocation" x="-71.495327102803728" y="635.63714902807783"/>
         </scene>
-        <!--View Controller-->
+        <!--Real Time Detection View Controller-->
         <scene sceneID="gGC-ZD-j6b">
             <objects>
-                <viewController id="zrT-HW-vu1" sceneMemberID="viewController">
+                <viewController id="zrT-HW-vu1" customClass="RealTimeDetectionViewController" customModule="ai_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QRH-as-h9Y">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B4u-g2-IAq">
+                                <rect key="frame" x="0.0" y="91" width="428" height="835"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Rxq-H1-InK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="B4u-g2-IAq" firstAttribute="top" secondItem="Rxq-H1-InK" secondAttribute="top" id="Fhj-43-eJs"/>
+                            <constraint firstItem="B4u-g2-IAq" firstAttribute="bottom" secondItem="Rxq-H1-InK" secondAttribute="bottom" constant="34" id="a5T-g3-jZ5"/>
+                            <constraint firstItem="Rxq-H1-InK" firstAttribute="trailing" secondItem="B4u-g2-IAq" secondAttribute="trailing" id="dUo-n1-1NZ"/>
+                            <constraint firstItem="B4u-g2-IAq" firstAttribute="leading" secondItem="Rxq-H1-InK" secondAttribute="leading" id="iPd-5L-cYW"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uKN-wN-DaJ"/>
+                    <connections>
+                        <outlet property="cameraView" destination="B4u-g2-IAq" id="3mv-6D-PWP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="amY-L3-km2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="827" y="637"/>
+            <point key="canvasLocation" x="825.70093457943915" y="636.93304535637151"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="GlK-D9-iDp">
