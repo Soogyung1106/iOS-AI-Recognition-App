@@ -128,7 +128,7 @@ class ObjectDetectionViewController: UIViewController, UINavigationControllerDel
         //"카테고리 : 정확도" 형식으로 출력
 //        if let results = request.results as? [VNClassificationObservation] {
 //            for result in results {
-//                print("\(result.identifier) : \(result.confidence)")
+//                print("log : \(result.identifier) : \(result.confidence)")
 //            }
 //        }
         

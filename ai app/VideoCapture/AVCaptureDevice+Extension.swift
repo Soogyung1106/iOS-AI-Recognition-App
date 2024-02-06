@@ -78,7 +78,7 @@ extension AVCaptureDevice {
             activeFormat = selectedFormat
             
             if let preferredFps = preferredSpec.fps {
-                activeVideoMinFrameDuration = CMTimeMake (value : 1, timescale: preferredFps)
+                //activeVideoMinFrameDuration = CMTimeMake (value : 1, timescale: preferredFps)
                 activeVideoMaxFrameDuration = CMTimeMake(value: 1, timescale: preferredFps)
                 unlockForConfiguration()
             }
