@@ -11,11 +11,19 @@ import Vision
 class RealTimeDetectionViewController: UIViewController {
  
     @IBOutlet weak var cameraView: UIView!
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var confidenceLabel: UILabel!
+    
+
     var videoCapture: VideoCapture!
     let visionRequestHandler = VNSequenceRequestHandler()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //라벨 초기값 설정
+        self.categoryLabel.text = ""
+        self.confidenceLabel.text = ""
         
         let spec = VideoSpec(fps: 3, size: CGSize(width: 1280, height: 720))
         self.videoCapture = VideoCapture(cameraType : .back, preferredSpec: spec, previewContainer: self.cameraView.layer)
@@ -56,7 +64,14 @@ class RealTimeDetectionViewController: UIViewController {
     
     func handleObjectDetection(request: VNRequest, error: Error?){
         if let result = request.results?.first as? VNClassificationObservation{
-            print("실시간 사물 인식 log : \(result.identifier) : \(result.confidence)")
+            //print("실시간 사물 인식 log : \(result.identifier) : \(result.confidence)")
+            
+            //UI 관련된 코드는 메인 쓰레드에서 실행
+            DispatchQueue.main.async {
+                self.categoryLabel.text = result.identifier
+                self.confidenceLabel.text = "\(String(format: "%.2f",  result.confidence*100))%"
+            }
+            
          }
     }
 }

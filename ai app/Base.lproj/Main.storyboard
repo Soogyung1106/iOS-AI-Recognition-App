@@ -164,7 +164,28 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B4u-g2-IAq">
                                 <rect key="frame" x="0.0" y="91" width="428" height="835"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="category" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Csg-4c-zq4">
+                                        <rect key="frame" x="12" y="683" width="404" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="confidence" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIj-MY-IxE">
+                                        <rect key="frame" x="149" y="730" width="130" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Csg-4c-zq4" secondAttribute="trailing" constant="12" id="HZG-z5-3yD"/>
+                                    <constraint firstItem="HIj-MY-IxE" firstAttribute="top" secondItem="Csg-4c-zq4" secondAttribute="bottom" constant="6" id="JkP-WA-USo"/>
+                                    <constraint firstItem="HIj-MY-IxE" firstAttribute="centerX" secondItem="B4u-g2-IAq" secondAttribute="centerX" id="Krp-IV-KpI"/>
+                                    <constraint firstAttribute="bottom" secondItem="HIj-MY-IxE" secondAttribute="bottom" constant="129" id="MBC-iD-OLW"/>
+                                    <constraint firstItem="Csg-4c-zq4" firstAttribute="leading" secondItem="B4u-g2-IAq" secondAttribute="leading" constant="12" id="yTS-kH-XcD"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Rxq-H1-InK"/>
@@ -179,6 +200,8 @@
                     <navigationItem key="navigationItem" id="uKN-wN-DaJ"/>
                     <connections>
                         <outlet property="cameraView" destination="B4u-g2-IAq" id="3mv-6D-PWP"/>
+                        <outlet property="categoryLabel" destination="Csg-4c-zq4" id="Awg-HV-DaA"/>
+                        <outlet property="confidenceLabel" destination="HIj-MY-IxE" id="u2q-WI-qGF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="amY-L3-km2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
