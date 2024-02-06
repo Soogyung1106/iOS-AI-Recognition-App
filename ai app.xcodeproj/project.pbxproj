@@ -21,6 +21,7 @@
 		EBD8A4272B7178D1000245E1 /* VideoCameraType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD8A4242B7178D1000245E1 /* VideoCameraType.swift */; };
 		EBD8A4282B7178D1000245E1 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD8A4252B7178D1000245E1 /* VideoCapture.swift */; };
 		EBD8A4292B7178D1000245E1 /* AVCaptureDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD8A4262B7178D1000245E1 /* AVCaptureDevice+Extension.swift */; };
+		EBEA436D2B726E2400A14CEC /* FacialAnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA436C2B726E2400A14CEC /* FacialAnalysisViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		EBD8A4242B7178D1000245E1 /* VideoCameraType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCameraType.swift; sourceTree = "<group>"; };
 		EBD8A4252B7178D1000245E1 /* VideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
 		EBD8A4262B7178D1000245E1 /* AVCaptureDevice+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVCaptureDevice+Extension.swift"; sourceTree = "<group>"; };
+		EBEA436C2B726E2400A14CEC /* FacialAnalysisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FacialAnalysisViewController.swift; path = "ai App/View Controller/FacialAnalysisViewController.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				EB71F0BB2B6B64AA002A1A27 /* MainViewController.swift */,
 				EB01B7E72B6FCD59004A8F8F /* ObjectDetectionViewController.swift */,
 				EBD8A4212B70E4C9000245E1 /* RealTimeDetectionViewController.swift */,
+				EBEA436C2B726E2400A14CEC /* FacialAnalysisViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBEA436D2B726E2400A14CEC /* FacialAnalysisViewController.swift in Sources */,
 				EB71F0BC2B6B64AA002A1A27 /* MainViewController.swift in Sources */,
 				EBD8A4222B70E4C9000245E1 /* RealTimeDetectionViewController.swift in Sources */,
 				EB71F0BE2B6B791B002A1A27 /* MainFeatureCell.swift in Sources */,

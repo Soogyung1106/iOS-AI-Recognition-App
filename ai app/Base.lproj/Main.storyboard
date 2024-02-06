@@ -208,21 +208,68 @@
             </objects>
             <point key="canvasLocation" x="825.70093457943915" y="636.93304535637151"/>
         </scene>
-        <!--View Controller-->
+        <!-- -->
         <scene sceneID="GlK-D9-iDp">
             <objects>
-                <viewController id="klR-4A-UUy" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="f9J-OA-xRI">
+                <viewController id="klR-4A-UUy" customClass="FacialAnalysisViewController" customModule="ai_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="f9J-OA-xRI">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nHs-tu-SAV">
+                                <rect key="frame" x="0.0" y="91" width="428" height="214"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UVO-6P-jsD">
+                                <rect key="frame" x="0.0" y="91" width="428" height="214"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="7hm-Li-UFH">
+                                    <rect key="frame" x="0.0" y="0.0" width="428" height="214"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xiw-od-Kuj">
+                                            <rect key="frame" x="94" y="0.0" width="240" height="214"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="240" id="oSA-TI-Mw8"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="xiw-od-Kuj" firstAttribute="centerX" secondItem="7hm-Li-UFH" secondAttribute="centerX" id="f6M-cs-0Dp"/>
+                                        <constraint firstItem="xiw-od-Kuj" firstAttribute="height" secondItem="7hm-Li-UFH" secondAttribute="height" id="gs3-Ta-7ZK"/>
+                                        <constraint firstItem="xiw-od-Kuj" firstAttribute="width" secondItem="7hm-Li-UFH" secondAttribute="height" id="p7B-Me-9fd"/>
+                                        <constraint firstItem="xiw-od-Kuj" firstAttribute="centerY" secondItem="7hm-Li-UFH" secondAttribute="centerY" id="uhN-Wc-MwC"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Vav-RB-cX9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Vav-RB-cX9" firstAttribute="trailing" secondItem="nHs-tu-SAV" secondAttribute="trailing" id="2nW-b1-rFW"/>
+                            <constraint firstItem="nHs-tu-SAV" firstAttribute="top" secondItem="Vav-RB-cX9" secondAttribute="top" id="5nX-B8-ztc"/>
+                            <constraint firstItem="UVO-6P-jsD" firstAttribute="leading" secondItem="nHs-tu-SAV" secondAttribute="leading" id="UST-CC-COb"/>
+                            <constraint firstItem="UVO-6P-jsD" firstAttribute="bottom" secondItem="nHs-tu-SAV" secondAttribute="bottom" id="cmm-1f-tpd"/>
+                            <constraint firstItem="UVO-6P-jsD" firstAttribute="trailing" secondItem="nHs-tu-SAV" secondAttribute="trailing" id="e3i-vW-tEW"/>
+                            <constraint firstItem="nHs-tu-SAV" firstAttribute="leading" secondItem="Vav-RB-cX9" secondAttribute="leading" id="jQM-YX-veB"/>
+                            <constraint firstItem="UVO-6P-jsD" firstAttribute="top" secondItem="nHs-tu-SAV" secondAttribute="top" id="lim-vs-dgs"/>
+                            <constraint firstItem="nHs-tu-SAV" firstAttribute="height" secondItem="f9J-OA-xRI" secondAttribute="width" multiplier="0.5" id="oQZ-Vm-bDq"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="csn-VK-r5Y"/>
+                    <navigationItem key="navigationItem" title=" " id="Q4S-m7-zLg">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Lt2-KG-X6A">
+                            <connections>
+                                <action selector="addPhoto:" destination="klR-4A-UUy" id="Zq5-eq-egZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="blurredImageView" destination="nHs-tu-SAV" id="kUF-JM-2Xf"/>
+                        <outlet property="selectedImageView" destination="xiw-od-Kuj" id="STg-ZJ-Vdw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4mc-aF-Aeu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1733" y="637"/>
+            <point key="canvasLocation" x="1732.7102803738317" y="636.93304535637151"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZTE-VH-bHJ">
