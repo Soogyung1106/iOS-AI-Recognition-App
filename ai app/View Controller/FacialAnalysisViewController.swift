@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Vision
 
 class FacialAnalysisViewController: UIViewController,  UIImagePickerControllerDelegate,  UINavigationControllerDelegate {
     
@@ -15,6 +16,17 @@ class FacialAnalysisViewController: UIViewController,  UIImagePickerControllerDe
             self.selectedImageView.image = selectedImage
         }
     }
+    
+    var selectedCIImage: CIImage?{
+        get{
+            if let selectedImage = self.selectedImage{
+                return CIImage(image: selectedImage)
+            }else{
+                return nil
+            }
+        }
+    }
+    
     
     @IBOutlet weak var blurredImageView: UIImageView!
     @IBOutlet weak var selectedImageView: UIImageView!
@@ -69,9 +81,37 @@ class FacialAnalysisViewController: UIViewController,  UIImagePickerControllerDe
             self.selectedImage = uiImage
         }
         
+        //백그라운드로 쓰레드로 처리
+        DispatchQueue.main.async {
+            self.detectFace()
+        }
+    }
+     
+    
+    //얼굴 인식하는 펑션 - [issue] : 작업이 오래 걸리는 무거운 작업임
+    func detectFace(){
+        
+        if let ciImage = self.selectedCIImage{
+            let detectFaceRequest = VNDetectFaceRectanglesRequest(completionHandler: self.handleFaces)  //사진에서 얼굴을 찾는 펑션
+            let requestHandler = VNImageRequestHandler(ciImage: ciImage, options: [:])
+            
+            do{
+                try requestHandler.perform([detectFaceRequest])
+            }catch{
+                print("detectFace log : \(error)")
+            }
+        }
         
     }
- 
     
-
+    //detectFace 펑션에서 얼굴을 인식해서 handleFaces 펑션에서 받아오게 됨
+    func handleFaces(request: VNRequest, error: Error?){
+        if let faces = request.results as? [VNFaceObservation] {
+            for face in faces{
+                print("face : \(face.boundingBox)")  //바운딩 박스 : 얼굴의 좌표 위치를 알아냄 [x, y, 너비, 높이]
+            }
+        }
+    }
+    
+    
 }

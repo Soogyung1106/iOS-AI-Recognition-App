@@ -28,10 +28,18 @@ class RealTimeDetectionViewController: UIViewController {
         let spec = VideoSpec(fps: 3, size: CGSize(width: 1280, height: 720))
         self.videoCapture = VideoCapture(cameraType : .back, preferredSpec: spec, previewContainer: self.cameraView.layer)
         
-         //인식하는 이미지가 바뀔때마다 detectObject 펑션 호출
+        //인식하는 이미지가 바뀔때마다 detectObject 펑션 호출
         self.videoCapture.imageBufferHandler = { (imageBuffer, timestamp, outputBuffer) in
             self.detectObject(image: imageBuffer)
         }
+        
+        
+        //test - crash 발생으로 detectObject 펑션 백그라운드로 쓰레드로 처리
+//        DispatchQueue.main.async {
+//            self.videoCapture.imageBufferHandler = { (imageBuffer, timestamp, outputBuffer) in
+//                self.detectObject(image: imageBuffer)
+//            }
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
