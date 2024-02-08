@@ -28,17 +28,48 @@ class FacialAnalysisViewController: UIViewController,  UIImagePickerControllerDe
         }
     }
     
+    //탭된 얼굴 이미지
+    var selectedFace: UIImage?{
+        //프로퍼티 옵저버
+        didSet{
+            if let selectedFace = self.selectedFace{
+                
+                //분석은 백그라운드로 작업으로 돌도록
+                DispatchQueue.global(qos: .userInitiated).async {
+                    self.performFaceAnalysis(on: selectedFace)
+                }
+            }
+        }
+    }
+    
+    
     var faceImageViews = [UIImageView]() //[issue] 얼굴 인식 후 이전 사진에서 추출된 사진이 남아있는 현상
+    
+    var requests = [VNRequest]() //ML 모델 3가지를 담아 놓을 배열
     
     @IBOutlet weak var blurredImageView: UIImageView!
     @IBOutlet weak var selectedImageView: UIImageView!
     @IBOutlet weak var facesScrollView: UIScrollView!
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        do{
+            let genderModel = try VNCoreMLModel(for: GenderNet().model)
+            self.requests.append(VNCoreMLRequest(model: genderModel, completionHandler: handleGenderClassification))
+            
+            let ageModel = try VNCoreMLModel(for: AgeNet().model)
+            self.requests.append(VNCoreMLRequest(model: ageModel, completionHandler: handleAgeClassification))
+            
+            let emotionModel = try VNCoreMLModel(for: CNNEmotions().model)
+            self.requests.append(VNCoreMLRequest(model: emotionModel, completionHandler: handleEmotionClassification))
+            
+        }catch {
+            print("viewDidLoad() log : \(error)")
+        }
+        
     }
     
     @IBAction func addPhoto(_ sender: UIBarButtonItem) {
@@ -108,7 +139,7 @@ class FacialAnalysisViewController: UIViewController,  UIImagePickerControllerDe
             do{
                 try requestHandler.perform([detectFaceRequest])
             }catch{
-                print("detectFaces log : \(error)")
+                print("detectFaces() log : \(error)")
             }
         }
         
@@ -161,6 +192,17 @@ class FacialAnalysisViewController: UIViewController,  UIImagePickerControllerDe
                     let faceUiImage = UIImage(cgImage: faceCgImage, scale: faceImage.scale, orientation: .up)
                     let faceImageView = UIImageView(frame:  CGRect(x: 90 * index , y: 0, width: 80, height: 80))  //x의 위치는 얼굴이 여러개일 경우 시작점이 인덱스에 따라 바뀌게 된다. / 사진별 간격 10
                     faceImageView.image = faceUiImage
+                    
+                    //각각의 얼굴 선택시 인터렉션 추가
+                    faceImageView.isUserInteractionEnabled = true
+                    
+                    
+                    //UITapGestureRecognizer - 이미지에 탭 액션이 발생했을 때 이벤트를 알려주는 클래스
+                    //이미지 탭했을 때 handleFaceImageViewTap 펑션을 호출
+                    let tap = UITapGestureRecognizer(target: self, action: #selector(FacialAnalysisViewController.handleFaceImageViewTap(_:)))
+                    faceImageView.addGestureRecognizer(tap)
+                    
+                    
                     self.facesScrollView.addSubview(faceImageView) //얼굴마다 서브뷰를 스크롤뷰 리스트에 추가
                     self.faceImageViews.append(faceImageView)  //배열에 인식된 얼굴들 추가
                 }
@@ -187,6 +229,56 @@ class FacialAnalysisViewController: UIViewController,  UIImagePickerControllerDe
         }
         
         self.faceImageViews.removeAll()
+    }
+    
+    //이미지 탭했을 때 호출되는 펑션
+    //@objc - Object-C와 Swift와의 호환성을 위해 추가된 문법
+    @objc func handleFaceImageViewTap(_ sender: UITapGestureRecognizer){
+        //탭이 된 이미지는 파란색으로 ui 표시
+        if let tappedImageView = sender.view as? UIImageView{
+            
+            //선택된 단 하나의 이미지만 표시하도록 나머지들은 ui 제거
+            for faceImageView in faceImageViews {
+                faceImageView.layer.borderWidth = 0
+                faceImageView.layer.borderColor = UIColor.clear.cgColor
+            }
+            
+            tappedImageView.layer.borderWidth = 3
+            tappedImageView.layer.borderColor = UIColor.blue.cgColor
+            
+            self.selectedFace = tappedImageView.image
+        }
+    }
+    
+    //얼굴을 분석하는 펑션
+    func performFaceAnalysis(on image: UIImage){
+        do{
+            for request in requests {
+                let handler = VNImageRequestHandler(cgImage: image.cgImage!, options: [:])
+                try handler.perform([request])
+            }
+        }catch{
+            print("performFaceAnalysis() log : \(error)")
+        }
+    }
+                                 
+    func handleGenderClassification(request: VNRequest, error: Error?){
+        if let genderObservation = request.results?.first as? VNClassificationObservation{
+            print("gender : \(genderObservation.identifier), confidence : \(genderObservation.confidence)")
+        }
+    }
+    
+    func handleAgeClassification(request: VNRequest, error: Error?){
+        if let ageObservation = request.results?.first as? VNClassificationObservation{
+            print("age : \(ageObservation.identifier), confidence : \(ageObservation.confidence)")
+        }
+    }
+    
+    func handleEmotionClassification(request: VNRequest, error: Error?){
+        if let emotionObservation = request.results?.first as? VNClassificationObservation{
+            print("emotion : \(emotionObservation.identifier), confidence : \(emotionObservation.confidence)")
+        }
+        
     }
     
     

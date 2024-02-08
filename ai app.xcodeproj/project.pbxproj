@@ -22,6 +22,9 @@
 		EBD8A4282B7178D1000245E1 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD8A4252B7178D1000245E1 /* VideoCapture.swift */; };
 		EBD8A4292B7178D1000245E1 /* AVCaptureDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD8A4262B7178D1000245E1 /* AVCaptureDevice+Extension.swift */; };
 		EBEA436D2B726E2400A14CEC /* FacialAnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA436C2B726E2400A14CEC /* FacialAnalysisViewController.swift */; };
+		EBEA43712B74C0C300A14CEC /* CNNEmotions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = EBEA436E2B74C0BF00A14CEC /* CNNEmotions.mlmodel */; };
+		EBEA43722B74C0C300A14CEC /* AgeNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = EBEA436F2B74C0C100A14CEC /* AgeNet.mlmodel */; };
+		EBEA43732B74C0C300A14CEC /* GenderNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = EBEA43702B74C0C300A14CEC /* GenderNet.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		EBD8A4252B7178D1000245E1 /* VideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
 		EBD8A4262B7178D1000245E1 /* AVCaptureDevice+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVCaptureDevice+Extension.swift"; sourceTree = "<group>"; };
 		EBEA436C2B726E2400A14CEC /* FacialAnalysisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FacialAnalysisViewController.swift; path = "ai App/View Controller/FacialAnalysisViewController.swift"; sourceTree = SOURCE_ROOT; };
+		EBEA436E2B74C0BF00A14CEC /* CNNEmotions.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CNNEmotions.mlmodel; sourceTree = "<group>"; };
+		EBEA436F2B74C0C100A14CEC /* AgeNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = AgeNet.mlmodel; sourceTree = "<group>"; };
+		EBEA43702B74C0C300A14CEC /* GenderNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = GenderNet.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +125,9 @@
 		EBB01FA02B6EE46700D4FF4D /* ML Model */ = {
 			isa = PBXGroup;
 			children = (
+				EBEA436F2B74C0C100A14CEC /* AgeNet.mlmodel */,
+				EBEA436E2B74C0BF00A14CEC /* CNNEmotions.mlmodel */,
+				EBEA43702B74C0C300A14CEC /* GenderNet.mlmodel */,
 				EBB01F9E2B6EE44900D4FF4D /* Inceptionv3.mlmodel */,
 			);
 			path = "ML Model";
@@ -207,7 +216,10 @@
 			files = (
 				EBEA436D2B726E2400A14CEC /* FacialAnalysisViewController.swift in Sources */,
 				EB71F0BC2B6B64AA002A1A27 /* MainViewController.swift in Sources */,
+				EBEA43722B74C0C300A14CEC /* AgeNet.mlmodel in Sources */,
+				EBEA43732B74C0C300A14CEC /* GenderNet.mlmodel in Sources */,
 				EBD8A4222B70E4C9000245E1 /* RealTimeDetectionViewController.swift in Sources */,
+				EBEA43712B74C0C300A14CEC /* CNNEmotions.mlmodel in Sources */,
 				EB71F0BE2B6B791B002A1A27 /* MainFeatureCell.swift in Sources */,
 				EB71F0A02B5E6D5C002A1A27 /* AppDelegate.swift in Sources */,
 				EBD8A4292B7178D1000245E1 /* AVCaptureDevice+Extension.swift in Sources */,
