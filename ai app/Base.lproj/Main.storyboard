@@ -241,18 +241,29 @@
                                 </view>
                                 <blurEffect style="regular"/>
                             </visualEffectView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ei8-Jl-iuN">
+                                <rect key="frame" x="-3" y="322" width="431" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="crU-NS-PI6"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="72l-DL-BI0"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="pnf-VY-YW8"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Vav-RB-cX9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Vav-RB-cX9" firstAttribute="trailing" secondItem="nHs-tu-SAV" secondAttribute="trailing" id="2nW-b1-rFW"/>
                             <constraint firstItem="nHs-tu-SAV" firstAttribute="top" secondItem="Vav-RB-cX9" secondAttribute="top" id="5nX-B8-ztc"/>
+                            <constraint firstItem="ei8-Jl-iuN" firstAttribute="trailing" secondItem="Vav-RB-cX9" secondAttribute="trailing" constant="428" id="FBS-27-GiR"/>
                             <constraint firstItem="UVO-6P-jsD" firstAttribute="leading" secondItem="nHs-tu-SAV" secondAttribute="leading" id="UST-CC-COb"/>
                             <constraint firstItem="UVO-6P-jsD" firstAttribute="bottom" secondItem="nHs-tu-SAV" secondAttribute="bottom" id="cmm-1f-tpd"/>
                             <constraint firstItem="UVO-6P-jsD" firstAttribute="trailing" secondItem="nHs-tu-SAV" secondAttribute="trailing" id="e3i-vW-tEW"/>
+                            <constraint firstItem="ei8-Jl-iuN" firstAttribute="top" secondItem="UVO-6P-jsD" secondAttribute="bottom" constant="12" id="iYR-4B-LaQ"/>
                             <constraint firstItem="nHs-tu-SAV" firstAttribute="leading" secondItem="Vav-RB-cX9" secondAttribute="leading" id="jQM-YX-veB"/>
                             <constraint firstItem="UVO-6P-jsD" firstAttribute="top" secondItem="nHs-tu-SAV" secondAttribute="top" id="lim-vs-dgs"/>
                             <constraint firstItem="nHs-tu-SAV" firstAttribute="height" secondItem="f9J-OA-xRI" secondAttribute="width" multiplier="0.5" id="oQZ-Vm-bDq"/>
+                            <constraint firstItem="Vav-RB-cX9" firstAttribute="leading" secondItem="ei8-Jl-iuN" secondAttribute="leading" constant="3" id="rHo-7A-2uv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title=" " id="Q4S-m7-zLg">
@@ -264,6 +275,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="blurredImageView" destination="nHs-tu-SAV" id="kUF-JM-2Xf"/>
+                        <outlet property="facesScrollView" destination="ei8-Jl-iuN" id="SsT-WG-Vk9"/>
                         <outlet property="selectedImageView" destination="xiw-od-Kuj" id="STg-ZJ-Vdw"/>
                     </connections>
                 </viewController>
