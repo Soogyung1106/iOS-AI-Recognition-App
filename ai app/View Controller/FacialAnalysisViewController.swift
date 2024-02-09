@@ -11,6 +11,23 @@ import AVFoundation
 
 class FacialAnalysisViewController: UIViewController,  UIImagePickerControllerDelegate,  UINavigationControllerDelegate {
     
+    let emotionsDic = [
+        "Sad" : "슬픔",
+        "Fear" : "두려움",
+        "Happy" : "행복함",
+        "Angry" : "화남",
+        "Neutral" : "중립적인",
+        "Surprise" : "놀람",
+        "Disgust" : "혐오감"
+        
+    ]
+    
+    let genderDic = [
+        "Male" : "남성",
+        "Female" : "여성"
+    ]
+    
+    
     var selectedImage: UIImage?{
         didSet{
             self.blurredImageView.image = selectedImage
@@ -66,6 +83,8 @@ class FacialAnalysisViewController: UIViewController,  UIImagePickerControllerDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.hideAllLabels() //[issue 해결] 처음 화면에 로딩되었을 때도 라벨들이 보임
         
         do{
             let genderModel = try VNCoreMLModel(for: GenderNet().model)
@@ -127,6 +146,8 @@ class FacialAnalysisViewController: UIViewController,  UIImagePickerControllerDe
             self.selectedImage = uiImage
             self.removeRectangles()  //[issue 해결] 이미지를 새로 고를때마다 이전 프레임들 삭제
             self.removeFaceImageViews() //[issue 해결] 이미지를 새로 고를때마다 이전에 인식됬던 얼굴 삭제
+            self.hideAllLabels() //[issue 해결] 새로운 이미지가 선택되면 기존 라벨 숨김
+            
             
             DispatchQueue.global(qos: .userInitiated).async{
                 self.detectFaces()
@@ -279,8 +300,9 @@ class FacialAnalysisViewController: UIViewController,  UIImagePickerControllerDe
             
             //UI적 요소는 메인 쓰레드에서 호출
             DispatchQueue.main.async {
-                self.genderIdentifierLabel.text = genderObservation.identifier
+                self.genderIdentifierLabel.text = self.genderDic[genderObservation.identifier] //En -> Ko
                 self.genderConfidenceLabel.text = "\(String(format: "%.2f", genderObservation.confidence*100))%"
+                self.showGenderLabels()
             }
         }
     }
@@ -292,6 +314,7 @@ class FacialAnalysisViewController: UIViewController,  UIImagePickerControllerDe
             DispatchQueue.main.async {
                 self.ageIdentifierLabel.text = ageObservation.identifier
                 self.ageConfidenceLabel.text = "\(String(format: "%.2f", ageObservation.confidence*100))%"
+                self.showAgeLabels()
             }
         }
     }
@@ -301,13 +324,49 @@ class FacialAnalysisViewController: UIViewController,  UIImagePickerControllerDe
             //print("emotion : \(emotionObservation.identifier), confidence : \(emotionObservation.confidence)")
             
             DispatchQueue.main.async {
-                self.emotionIdentifierLabel.text = emotionObservation.identifier
+                self.emotionIdentifierLabel.text = self.emotionsDic[emotionObservation.identifier]  //En -> Ko
                 self.emotionConfidenceLabel.text = "\(String(format: "%.2f", emotionObservation.confidence*100))%"
+                self.showEmotionLabels()
             }
         }
         
     }
     
+    //라벨을 다 숨기는 펑션
+    func hideAllLabels(){
+        self.genderLabel.isHidden = true
+        self.genderIdentifierLabel.isHidden = true
+        self.genderConfidenceLabel.isHidden = true
+        
+        self.ageLabel.isHidden = true
+        self.ageIdentifierLabel.isHidden = true
+        self.ageConfidenceLabel.isHidden = true
+        
+        self.emotionLabel.isHidden = true
+        self.emotionIdentifierLabel.isHidden = true
+        self.emotionConfidenceLabel.isHidden = true
+        
+        
+    }
     
+    //분석 후 숨겼던 라벨을 다시 보여주는 펑션
+    func showGenderLabels(){
+        self.genderLabel.isHidden = false
+        self.genderIdentifierLabel.isHidden = false
+        self.genderConfidenceLabel.isHidden = false
+    }
+    
+    
+    func showAgeLabels(){
+        self.ageLabel.isHidden = false
+        self.ageIdentifierLabel.isHidden = false
+        self.ageConfidenceLabel.isHidden = false
+    }
+    
+    func showEmotionLabels(){
+        self.emotionLabel.isHidden = false
+        self.emotionIdentifierLabel.isHidden = false
+        self.emotionConfidenceLabel.isHidden = false
+    }
     
 }
