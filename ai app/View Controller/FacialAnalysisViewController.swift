@@ -51,6 +51,17 @@ class FacialAnalysisViewController: UIViewController,  UIImagePickerControllerDe
     @IBOutlet weak var selectedImageView: UIImageView!
     @IBOutlet weak var facesScrollView: UIScrollView!
     
+    @IBOutlet weak var genderLabel: UILabel!
+    @IBOutlet weak var genderIdentifierLabel: UILabel!
+    @IBOutlet weak var genderConfidenceLabel: UILabel!
+    
+    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var ageIdentifierLabel: UILabel!
+    @IBOutlet weak var ageConfidenceLabel: UILabel!
+    
+    @IBOutlet weak var emotionLabel: UILabel!
+    @IBOutlet weak var emotionIdentifierLabel: UILabel!
+    @IBOutlet weak var emotionConfidenceLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -264,19 +275,35 @@ class FacialAnalysisViewController: UIViewController,  UIImagePickerControllerDe
                                  
     func handleGenderClassification(request: VNRequest, error: Error?){
         if let genderObservation = request.results?.first as? VNClassificationObservation{
-            print("gender : \(genderObservation.identifier), confidence : \(genderObservation.confidence)")
+            //print("gender : \(genderObservation.identifier), confidence : \(genderObservation.confidence)")
+            
+            //UI적 요소는 메인 쓰레드에서 호출
+            DispatchQueue.main.async {
+                self.genderIdentifierLabel.text = genderObservation.identifier
+                self.genderConfidenceLabel.text = "\(String(format: "%.2f", genderObservation.confidence*100))%"
+            }
         }
     }
     
     func handleAgeClassification(request: VNRequest, error: Error?){
         if let ageObservation = request.results?.first as? VNClassificationObservation{
-            print("age : \(ageObservation.identifier), confidence : \(ageObservation.confidence)")
+            //print("age : \(ageObservation.identifier), confidence : \(ageObservation.confidence)")
+            
+            DispatchQueue.main.async {
+                self.ageIdentifierLabel.text = ageObservation.identifier
+                self.ageConfidenceLabel.text = "\(String(format: "%.2f", ageObservation.confidence*100))%"
+            }
         }
     }
     
     func handleEmotionClassification(request: VNRequest, error: Error?){
         if let emotionObservation = request.results?.first as? VNClassificationObservation{
-            print("emotion : \(emotionObservation.identifier), confidence : \(emotionObservation.confidence)")
+            //print("emotion : \(emotionObservation.identifier), confidence : \(emotionObservation.confidence)")
+            
+            DispatchQueue.main.async {
+                self.emotionIdentifierLabel.text = emotionObservation.identifier
+                self.emotionConfidenceLabel.text = "\(String(format: "%.2f", emotionObservation.confidence*100))%"
+            }
         }
         
     }
