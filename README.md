@@ -45,7 +45,7 @@
 <img width = "20%" src = "https://github.com/Soogyung1106/iOS-AI-Recognition-App/assets/50011528/c6b067b6-cfdc-48ce-9e76-bdef7b06c7ab"/> 
 <img width = "20%" src = "https://github.com/Soogyung1106/iOS-AI-Recognition-App/assets/50011528/160b3a99-718e-4f14-9e5f-380678d468df"/>
 
-<br/>사람 얼굴로부터 **나이, 성별, 감정 추측** 기능 <br/>
+사람 얼굴로부터 **나이, 성별, 감정 추측** 기능 <br/>
 - 앨범에서 사진 가져오기
 - 카메라로 얼굴 촬영하기
 
