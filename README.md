@@ -1,13 +1,17 @@
 # iOS-AI-Recognition-App
 ## 1. 프로젝트 설명 
 <img width =  "25%" src = "https://github.com/Soogyung1106/iOS-AI-Recognition-App/assets/50011528/de420fff-75db-4216-8681-4823d8fcb497"/><br/>
-AI를 활용한 사물 인식 및 추측 어플리케이션
+
+<br/>AI를 활용한 사물 인식 및 추측 어플리케이션
 
 ## 2. 사용 기술 
 
 - 언어 : Swift 
 - IDE : Xcode 
-- 프레임워크 : UIKit, Vision, AVFoundation
+- 프레임워크 
+  1) UIKit<br/>
+  2) Vision<br/>
+  3) AVFoundation<br/>
 - ML 모델
   1) AgeNet.mlmodel<br/>
   2) CNNEmotions.mlmodel<br/>
