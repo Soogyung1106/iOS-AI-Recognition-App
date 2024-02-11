@@ -2,12 +2,14 @@
 ## 1. 프로젝트 설명 
 <img width =  "25%" src = "https://github.com/Soogyung1106/iOS-AI-Recognition-App/assets/50011528/de420fff-75db-4216-8681-4823d8fcb497"/><br/>
 
-<br/>AI를 활용한 사물 인식 및 추측 어플리케이션
+<br/>AI 모델을 활용해 사물 인식 및 얼굴을 분석하는 어플리케이션 
 
 ## 2. 사용 기술 
 
-- 언어 : Swift 
-- IDE : Xcode 
+- 언어 : Swift
+- OS : iOS
+- IDE : Xcode
+- VCS : git
 - 프레임워크 
   1) UIKit<br/>
   2) Vision<br/>
