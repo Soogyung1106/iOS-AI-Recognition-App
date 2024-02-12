@@ -20,7 +20,7 @@
   3) GenderNet.mlmodel<br/>
   4) Inceptionv3.mlmodel<br/>
      
-(참고로 ML 모델은 용량이 너무 커서 깃허브에 업로드가 안 된다.)  
+(참고로 ML 모델은 용량이 너무 커서 깃허브에 업로드를 안 하였다.)  
 
 
 ## 3. 기능 
@@ -36,8 +36,8 @@
 
 
 ### 3.2. Real Time Object Detection
-<img width = "25%" src="https://github.com/Soogyung1106/iOS-AI-Recognition-App/assets/50011528/79e8389f-5fb9-4afb-b2b9-614ce329c9e3"/>
-**실시간**으로 카메라로 **사물 인식** 기능<br/>
+<img width = "25%" src="https://github.com/Soogyung1106/iOS-AI-Recognition-App/assets/50011528/79e8389f-5fb9-4afb-b2b9-614ce329c9e3"/><br/>
+**실시간**으로 카메라로 **사물 인식** 기능 
 
 ### 3.3. Facial Analysis
 <img width = "20%" src = "https://github.com/Soogyung1106/iOS-AI-Recognition-App/assets/50011528/796eb3e3-173d-42bd-930f-bc5a7b31c3b3"/>
