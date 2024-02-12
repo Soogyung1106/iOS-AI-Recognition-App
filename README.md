@@ -2,7 +2,7 @@
 ## 1. 프로젝트 요약
 <img width =  "25%" src = "https://github.com/Soogyung1106/iOS-AI-Recognition-App/assets/50011528/de420fff-75db-4216-8681-4823d8fcb497"/><br/>
 
-<br/>AI 모델을 활용해 사물 인식 및 얼굴을 분석하는 어플리케이션 
+<br/>AI 모델을 활용해 사물을 인식하고 얼굴을 분석하는 iOS 어플리케이션 
 
 ## 2. 사용 기술 
 
